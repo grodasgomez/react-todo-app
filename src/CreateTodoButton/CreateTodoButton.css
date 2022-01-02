@@ -1,0 +1,14 @@
+.button-create {
+  display: block;
+  border: none;
+  border-radius: 100%;
+  cursor: pointer;
+  width: 60px;
+  height: 60px;
+  color: #fff;
+  background-color:#e11f59;
+  padding: 0;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}

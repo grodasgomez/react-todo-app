@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import CreateTodoButton from '../CreateTodoButton';
 import useLocalStorageState from '../custom/useLocalStorageState';
 import TodoCounter from '../TodoCounter';
 import TodoItem from '../TodoItem';
@@ -60,9 +61,7 @@ function App() {
           />
         ))}
       </TodoList>
-      <button type="button" className="button-create">
-        +
-      </button>
+      <CreateTodoButton/>
     </>
   )
 }
