@@ -1,10 +1,10 @@
 import { useState } from 'react'
-import CreateTodoButton from 'CreateTodoButton';
-import useLocalStorageState from 'custom/useLocalStorageState';
-import TodoCounter from 'TodoCounter';
-import TodoItem from 'TodoItem';
-import TodoList from 'TodoList';
-import TodoSearch from 'TodoSearch';
+import CreateTodoButton from 'components/CreateTodoButton';
+import useLocalStorageState from 'hooks/useLocalStorageState';
+import TodoCounter from 'components/TodoCounter';
+import TodoItem from 'components/TodoItem';
+import TodoList from 'components/TodoList';
+import TodoSearch from 'components/TodoSearch';
 import { Todo } from 'types';
 // import './App.css'
 
@@ -29,9 +29,9 @@ const defaultTodos: Todo[] = [{
   completed: true
 }]
 function App() {
-  
-  const [todos, setTodos] = useLocalStorageState<Todo[]>('todo_v1', defaultTodos);
-  
+
+  const { item: todos, setItem: setTodos, loading } = useLocalStorageState<Todo[]>('todo_v1', defaultTodos);
+
   const [searchValue, setSearchValue] = useState('');
 
   const completedTodos = todos.filter(todo => todo.completed).length;
@@ -49,19 +49,28 @@ function App() {
     const newTodos = todos.filter(todo => todo.text !== text);
     setTodos(newTodos);
   }
+
   return (
     <>
       <TodoCounter completed={completedTodos} total={totalTodos} />
       <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} />
       <TodoList>
-        {filterTodos.map((todo: Todo, index: number) => (
-          <TodoItem key={index} text={todo.text} completed={todo.completed}
-            toggleComplete={toggleComplete}
-            deleteTodo={deleteTodo}
-          />
-        ))}
+        {
+          loading ? <p>Loading...</p> :
+          
+          todos.length === 0 ? <p>No todos</p> :
+
+          filterTodos.length === 0 ? <p>No todos match your search</p> :
+
+          filterTodos.map((todo: Todo, index: number) => (
+            <TodoItem key={index} text={todo.text} completed={todo.completed}
+              toggleComplete={toggleComplete}
+              deleteTodo={deleteTodo}
+            />
+          ))
+        }
       </TodoList>
-      <CreateTodoButton/>
+      <CreateTodoButton />
     </>
   )
 }
