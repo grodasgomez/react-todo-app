@@ -1,12 +1,10 @@
 import './TodoSearch.css'
 
 import { Search } from 'tabler-icons-react';
-function TodoSearch(props: {
-  searchValue: string
-  setSearchValue: (value: string) => void;
-}) {
-
-  const { searchValue, setSearchValue } = props;
+import { useContext } from 'react';
+import { TodoContext } from 'context/todoContext';
+function TodoSearch() {
+  const { searchValue, setSearchValue } = useContext(TodoContext);
   const onChangeSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchValue(e.target.value);
   }
