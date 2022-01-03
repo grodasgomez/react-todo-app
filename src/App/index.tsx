@@ -1,11 +1,11 @@
 import { useState } from 'react'
-import CreateTodoButton from '../CreateTodoButton';
-import useLocalStorageState from '../custom/useLocalStorageState';
-import TodoCounter from '../TodoCounter';
-import TodoItem from '../TodoItem';
-import TodoList from '../TodoList';
-import TodoSearch from '../TodoSearch';
-import { Todo } from '../types';
+import CreateTodoButton from 'CreateTodoButton';
+import useLocalStorageState from 'custom/useLocalStorageState';
+import TodoCounter from 'TodoCounter';
+import TodoItem from 'TodoItem';
+import TodoList from 'TodoList';
+import TodoSearch from 'TodoSearch';
+import { Todo } from 'types';
 // import './App.css'
 
 const defaultTodos: Todo[] = [{
