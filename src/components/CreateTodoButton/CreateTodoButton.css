@@ -11,4 +11,11 @@
   position: fixed;
   bottom: 20px;
   right: 20px;
+  z-index: 1;
+  transition: transform 0.3s ease-in-out;
+}
+
+.button-create.close{
+  background-color:#e11f59;
+  transform: rotate(135deg);
 }

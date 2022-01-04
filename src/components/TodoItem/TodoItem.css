@@ -12,6 +12,9 @@
 .todo-item p {
   margin: 0;
   padding-inline: 30px;
+  text-decoration-color: transparent;
+  text-decoration-line: line-through;
+  transition: text-decoration-color ease-in-out 0.2s;
 }
 
 .todo-item:hover, .todo-item.completed:hover {
@@ -65,5 +68,5 @@
 }
 
 .todo-item.completed p {
-  text-decoration: line-through;
+  text-decoration-color: black; 
 }

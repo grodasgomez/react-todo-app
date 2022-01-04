@@ -6,14 +6,16 @@ import TodoItem from 'components/TodoItem';
 import TodoList from 'components/TodoList';
 import TodoSearch from 'components/TodoSearch';
 import { Todo } from 'types';
-import { TodoContext, TodoProvider } from 'context/todoContext';
+import { TodoContext } from 'context/todoContext';
+import Modal from 'components/Modal';
+import TodoForm from 'components/TodoForm';
 // import './App.css'
 
 
 function AppUI() {
   const { loading, filterTodos, todos, deleteTodo, toggleComplete } = useContext(TodoContext);
 
-  console.log(filterTodos);
+
   return (
     <>
       <TodoCounter />
@@ -34,8 +36,11 @@ function AppUI() {
                 ))
         }
       </TodoList>
-
       <CreateTodoButton />
+      <Modal>
+        <TodoForm />
+
+      </Modal>
     </>
   )
 }
