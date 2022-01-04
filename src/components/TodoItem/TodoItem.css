@@ -6,7 +6,7 @@
   border-radius: 3px;
   box-shadow: 0px 0px 3px #000;
   transition: all 0.2s ease;
-  width: 500px;
+  width: 50%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -83,3 +83,10 @@
 .todo-item.completed .todo-item__input {
   text-decoration-color: black; 
 }
+
+@media screen and (max-width: 768px) {
+  .todo-item {
+    width: 80%;
+  }
+}
+  

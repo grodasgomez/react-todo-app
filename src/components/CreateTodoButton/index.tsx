@@ -1,5 +1,5 @@
 import './CreateTodoButton.css'
-import { Plus } from "tabler-icons-react"
+import { Plus } from "tabler-icons-react";
 import { TodoContext } from 'context/todoContext'
 import { useContext } from 'react'
 

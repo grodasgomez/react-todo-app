@@ -2,10 +2,12 @@
   display: flex;
   justify-content: center;
   align-items: space-between;
+  width: 100%;
 }
 
 .input-container {
   position: relative;
+  width: 50%;
 }
 
 .search-input {
@@ -13,11 +15,17 @@
   font-size: 17px;
   border: 1px solid #ddd;
   border-radius: 3px;
-  width: 500px;
+  width: 100%;
 }
 
 .search-icon {
   position: absolute;
   right: 7px;
   top: 8px;
+}
+
+@media screen and (max-width: 768px) {
+  .input-container {
+    width: 80%;
+  }
 }
