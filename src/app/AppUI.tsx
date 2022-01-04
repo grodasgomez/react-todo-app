@@ -10,14 +10,14 @@ import Modal from 'components/Modal';
 import TodoForm from 'components/TodoForm';
 import Skeleton from 'components/Skeleton';
 import TodoFilter from 'components/TodoFilter';
-// import './App.css'
+import './App.css'
 
 
 function AppUI() {
   const { loading, filterTodos, todos } = useContext(TodoContext);
 
   return (
-    <>
+    <div className="app">
       <TodoCounter />
       <TodoFilter />
       <TodoSearch />
@@ -30,17 +30,17 @@ function AppUI() {
               filterTodos.length === 0 ? <p>No todos match your search</p> :
 
                 filterTodos.map((todo: Todo, index: number) => (
-                  <TodoItem key={todo.text} index={index} text={todo.text} completed={todo.completed}/>
+                  <TodoItem key={todo.text} index={index} text={todo.text} completed={todo.completed} />
                 ))
         }
 
       </TodoList>
+
       <CreateTodoButton />
       <Modal>
         <TodoForm />
-
       </Modal>
-    </>
+    </div>
   )
 }
 
