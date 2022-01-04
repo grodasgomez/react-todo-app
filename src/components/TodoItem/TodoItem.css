@@ -29,7 +29,7 @@
   text-decoration-line: line-through;
   transition: text-decoration-color ease-in-out 0.2s;
 }
-.todo-item__input:not(.completed):hover{
+.todo-item:not(.completed) .todo-item__input:hover{
   background-color: #d3d3d3;
   cursor: pointer;
 }
@@ -40,9 +40,6 @@
 }
 
 .todo-item__check {
-  /* position: absolute;
-  top: 5px;
-  left: 3px; */
   background:
     linear-gradient(#fff, #fff) padding-box,
     linear-gradient(to right, #9c20aa, #fb3570) border-box;
@@ -66,9 +63,6 @@
 }
 
 .todo-item__delete {
-  /* position: absolute;
-  top: 13px;
-  right: 0; */
   transition: color 0.2s ease-in-out;
 }
 
