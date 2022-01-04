@@ -1,21 +1,37 @@
 .todo-item {
   text-decoration: none;
-  padding: 10px;
+  padding-inline: 10px;
+  padding-block: 5px;
   background-color: #FFF;
-  margin-block: 20px;
   border-radius: 3px;
   box-shadow: 0px 0px 3px #000;
-  position: relative;
   transition: all 0.2s ease;
-  min-width: 500px;
+  width: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+}
+.todo-item__text{
+  flex: 1;
+  padding-inline-start: 10px;
+  overflow: hidden;
 }
 
-.todo-item p {
-  margin: 0;
-  padding-inline: 30px;
+.todo-item__input{
+  background-color: transparent;
+  border: 0;
+  padding: 8px;
+  width: 100%;
+  font-size: 14px;
+  font-family: inherit;
   text-decoration-color: transparent;
   text-decoration-line: line-through;
   transition: text-decoration-color ease-in-out 0.2s;
+}
+.todo-item__input:not(.completed):hover{
+  background-color: #d3d3d3;
+  cursor: pointer;
 }
 
 .todo-item:hover, .todo-item.completed:hover {
@@ -24,17 +40,19 @@
 }
 
 .todo-item__check {
-  position: absolute;
+  /* position: absolute;
   top: 5px;
-  left: 3px;
+  left: 3px; */
   background:
     linear-gradient(#fff, #fff) padding-box,
     linear-gradient(to right, #9c20aa, #fb3570) border-box;
   border: 3px solid transparent;
   border-radius: 100%;
-  
+  width: 40px;
+  height: 40px;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .todo-item__check svg{
@@ -48,9 +66,9 @@
 }
 
 .todo-item__delete {
-  position: absolute;
-  top: 6px;
-  right: 0;
+  /* position: absolute;
+  top: 13px;
+  right: 0; */
   transition: color 0.2s ease-in-out;
 }
 
@@ -68,6 +86,6 @@
   visibility: visible;
 }
 
-.todo-item.completed p {
+.todo-item.completed .todo-item__input {
   text-decoration-color: black; 
 }

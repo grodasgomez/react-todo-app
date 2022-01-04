@@ -1,7 +1,7 @@
 import './TodoList.css'
 function TodoList(props: any) {
   return (
-    <section className="todo-list-wrapper">
+    <section className="todo-list__wrapper">
       <ul className="todo-list">
         {props.children}
       </ul>

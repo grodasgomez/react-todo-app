@@ -20,7 +20,9 @@ function TodoForm() {
   return (
     <form onSubmit={onSubmit}>
       <h2>Create new todo</h2>
-      <input type="text" placeholder="Build an amazing todo app" name="todo-text"
+      <input type="text" placeholder="Build an amazing todo app"
+        aria-label='todo-input'
+        name="todo-text"
         value={text}
         className="form-input"
         onChange={(e) => setText(e.target.value)} />

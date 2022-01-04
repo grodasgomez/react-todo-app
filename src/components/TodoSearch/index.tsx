@@ -10,14 +10,12 @@ function TodoSearch() {
   }
   return (
     <section className="search-wrapper">
-
-      <input type="text" placeholder="Search..." value={searchValue} className="search-input" onChange={onChangeSearch} />
-
-      <button type="button" className="search-button">
+      <div className="input-container">
+        <input type="text" placeholder="Search..." value={searchValue} className="search-input" onChange={onChangeSearch} />
         <span className="search-icon">
           <Search />
         </span>
-      </button>
+      </div>
 
     </section>
   )

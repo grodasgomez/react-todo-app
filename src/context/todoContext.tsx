@@ -18,6 +18,7 @@ export type ITodoContext = {
   toggleComplete: (text: string) => void;
   deleteTodo: (text: string) => void;
   addTodo: (text: string) => void;
+  editTodo: (index: number, text: string) => void;
 }
 const TodoContext = createContext<ITodoContext>({} as ITodoContext);
 //   todos: [],
@@ -64,6 +65,12 @@ function TodoProvider(props: any) {
     const newTodos = [...todos, { text, completed: false }];
     setTodos(newTodos);
   }
+
+  const editTodo = (index: number, text: string) => {
+    const newTodos = [...todos];
+    newTodos[index].text = text;
+    setTodos(newTodos);
+  }
   return (
     <TodoContext.Provider value={{
       todos,
@@ -77,6 +84,7 @@ function TodoProvider(props: any) {
       toggleComplete,
       deleteTodo,
       addTodo,
+      editTodo,
       openModal,
       setOpenModal
     }}
