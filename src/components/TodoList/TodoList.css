@@ -1,5 +1,6 @@
 .todo-list__wrapper {
   flex:1;
+  
 }
 .todo-list{
   margin-top: 5px;
@@ -10,4 +11,5 @@
   align-items: center;
   justify-content: center;
   gap: 20px;
+  
 }

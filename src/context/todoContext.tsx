@@ -19,6 +19,8 @@ export type ITodoContext = {
   deleteTodo: (text: string) => void;
   addTodo: (text: string) => void;
   editTodo: (index: number, text: string) => void;
+  filter: 'all' | 'active' | 'completed';
+  setFilter: (filter: 'all' | 'active' | 'completed') => void;
 }
 const TodoContext = createContext<ITodoContext>({} as ITodoContext);
 //   todos: [],
@@ -43,9 +45,19 @@ function TodoProvider(props: any) {
 
   const [openModal, setOpenModal] = useState(false);
 
+  const [filter, setFilter] = useState<'all' | 'active' | 'completed'>('all');
+
+  let filterTodo: (todo:Todo) => boolean;
+  if(filter === 'completed') {
+    filterTodo = (todo: Todo) => todo.completed;
+  } else if(filter === 'active') {
+    filterTodo = (todo: Todo) => !todo.completed;
+  } else {
+    filterTodo = () => true;
+  }
   const completedTodos = todos.filter(todo => todo.completed).length;
   const totalTodos = todos.length;
-  const filterTodos = todos.filter(todo => todo.text.toLowerCase().includes(searchValue.toLowerCase()));
+  const filteredTodos = todos.filter(todo => todo.text.toLowerCase().includes(searchValue.toLowerCase()) && filterTodo(todo));
 
   const toggleComplete = (text: string) => {
     const index = todos.findIndex(todo => todo.text === text);
@@ -78,7 +90,7 @@ function TodoProvider(props: any) {
       loading,
       completedTodos,
       totalTodos,
-      filterTodos,
+      filterTodos: filteredTodos,
       searchValue,
       setSearchValue,
       toggleComplete,
@@ -86,7 +98,9 @@ function TodoProvider(props: any) {
       addTodo,
       editTodo,
       openModal,
-      setOpenModal
+      setOpenModal,
+      filter,
+      setFilter,
     }}
     >
       {props.children}

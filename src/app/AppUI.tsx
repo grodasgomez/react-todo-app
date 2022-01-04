@@ -9,6 +9,7 @@ import { TodoContext } from 'context/todoContext';
 import Modal from 'components/Modal';
 import TodoForm from 'components/TodoForm';
 import Skeleton from 'components/Skeleton';
+import TodoFilter from 'components/TodoFilter';
 // import './App.css'
 
 
@@ -19,6 +20,7 @@ function AppUI() {
   return (
     <>
       <TodoCounter />
+      <TodoFilter />
       <TodoSearch />
       <TodoList>
         {
