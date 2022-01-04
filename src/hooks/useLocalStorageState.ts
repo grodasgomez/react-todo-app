@@ -16,7 +16,7 @@ export default function useLocalStorage<T>(itemName: string, initialState: T) {
 
       setItem(parsedItem);
       setLoading(false);
-    }, 1000);
+    }, 2000);
   }, []);
 
 
