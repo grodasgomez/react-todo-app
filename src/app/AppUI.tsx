@@ -14,8 +14,7 @@ import TodoFilter from 'components/TodoFilter';
 
 
 function AppUI() {
-  const { loading, filterTodos, todos, deleteTodo, toggleComplete } = useContext(TodoContext);
-
+  const { loading, filterTodos, todos } = useContext(TodoContext);
 
   return (
     <>
@@ -31,10 +30,7 @@ function AppUI() {
               filterTodos.length === 0 ? <p>No todos match your search</p> :
 
                 filterTodos.map((todo: Todo, index: number) => (
-                  <TodoItem key={index} index={index} text={todo.text} completed={todo.completed}
-                    toggleComplete={toggleComplete}
-                    deleteTodo={deleteTodo}
-                  />
+                  <TodoItem key={todo.text} index={index} text={todo.text} completed={todo.completed}/>
                 ))
         }
 

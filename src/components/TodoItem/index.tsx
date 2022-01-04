@@ -5,12 +5,10 @@ import { TodoContext } from 'context/todoContext';
 function TodoItem(props: {
   text: string,
   completed: boolean,
-  toggleComplete: (text: string) => void;
-  deleteTodo: (text: string) => void;
   index: number;
 }) {
-  const { text, completed, toggleComplete, deleteTodo, index } = props;
-  const { editTodo} = useContext(TodoContext);
+  const { text, completed,  index } = props;
+  const { editTodo, toggleComplete, deleteTodo} = useContext(TodoContext);
   const [editText, setEditText] = useState(text);
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {

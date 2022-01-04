@@ -12,6 +12,7 @@
 
 .todo-filter__item{
   text-decoration: none;
+  cursor: pointer;
   color: #000;
   font-size: 18px;
   font-weight: bold;

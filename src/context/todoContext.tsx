@@ -57,8 +57,8 @@ function TodoProvider(props: any) {
   }
   const completedTodos = todos.filter(todo => todo.completed).length;
   const totalTodos = todos.length;
-  const filteredTodos = todos.filter(todo => todo.text.toLowerCase().includes(searchValue.toLowerCase()) && filterTodo(todo));
-
+  const filteredTodos = todos.filter(todo => filterTodo(todo) && todo.text.toLowerCase().includes(searchValue.toLowerCase()));
+  
   const toggleComplete = (text: string) => {
     const index = todos.findIndex(todo => todo.text === text);
     const newTodos = [...todos];

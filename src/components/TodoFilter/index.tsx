@@ -10,15 +10,15 @@ function TodoFilter() {
   return (
     <div className="todo-filter__wrapper">
       <div className="todo-filter">
-        <a href="javascript:void(0)" className={`todo-filter__item ${filter === 'all' ? 'active' : ''}`}
+        <a className={`todo-filter__item ${filter === 'all' ? 'active' : ''}`}
           onClick={() => onFilter('all')}>
           All
         </a>
-        <a href="javascript:void(0)" className={`todo-filter__item ${filter === 'active' ? 'active' : ''}`}
+        <a className={`todo-filter__item ${filter === 'active' ? 'active' : ''}`}
           onClick={() => onFilter('active')}>
           Active
         </a>
-        <a href="javascript:void(0)" className={`todo-filter__item ${filter === 'completed' ? 'active' : ''}`}
+        <a className={`todo-filter__item ${filter === 'completed' ? 'active' : ''}`}
           onClick={() => onFilter('completed')}>
           Completed
         </a>
