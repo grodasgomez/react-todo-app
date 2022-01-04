@@ -6,10 +6,15 @@ function TodoForm() {
   const [text, setText] = useState('');
 
   const { addTodo, setOpenModal } = useContext(TodoContext);
+
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     addTodo(text);
     setText('');
+    setOpenModal(false);
+  }
+
+  const onCancel = () => {
     setOpenModal(false);
   }
   return (
@@ -21,7 +26,7 @@ function TodoForm() {
         onChange={(e) => setText(e.target.value)} />
       <div className="button-group">
         <button type="submit" className="button primary">Add</button>
-        <button type="reset" className="button secondary">Cancel</button>
+        <button type="reset" className="button secondary" onClick={onCancel}>Cancel</button>
       </div>
     </form>
   )

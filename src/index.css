@@ -19,12 +19,6 @@ body {
 
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-
-
 .button {
   display: block;
   border: none;
@@ -43,6 +37,10 @@ code {
 }
 
 .button.secondary {
-  background-color: #FBDA61;
+  background-color: transparent;
   color: #000;
+}
+
+.button.secondary:hover {
+  background-color: #f2f2f2;
 }
